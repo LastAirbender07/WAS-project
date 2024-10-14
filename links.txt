@@ -15,3 +15,5 @@ document.addEventListener('keydown', function(e) {
   });
 });
 </script>
+
+https://www.decompiler.com/jar/a72cb998f8d048ea85b23f3c6ad725ab/ZeroSMS.apk/sources/e1/C0522a.java
